@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Development Crew - Static Version</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Product Development Crew</h1>
+        <p class="tagline">Your AI-powered product development team (Static Version)</p>
+      </header>
+
+      <section id="idea-input" class="card">
+        <h2>Submit Your Product Idea</h2>
+        <p>
+          Describe your product idea in detail. Our AI will analyze it and create a development plan.
+          <strong>Note:</strong> This is a simplified version that runs directly in the browser.
+        </p>
+
+        <form id="idea-form">
+          <div class="form-group">
+            <label for="idea">Your Product Idea:</label>
+            <textarea
+              id="idea"
+              name="idea"
+              rows="6"
+              placeholder="Describe your product idea in detail. What problem does it solve? Who is it for? What are the key features?"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="api-key">Claude API Key:</label>
+            <input
+              type="password"
+              id="api-key"
+              name="api-key"
+              placeholder="sk-ant-api03-..."
+              value="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"
+            />
+            <p class="help-text">Your Claude API key (needed to generate content)</p>
+          </div>
+
+          <button type="submit" class="button primary">Submit Idea</button>
+        </form>
+      </section>
+
+      <section id="processing" class="card hidden">
+        <h2>Processing Your Idea</h2>
+        <div class="loader"></div>
+        <p id="status-message">
+          The AI is working on your product idea...
+        </p>
+        <div id="progress-container">
+          <div id="progress-bar"><div id="progress-fill"></div></div>
+          <p id="current-step">Initializing...</p>
+        </div>
+        <p>
+          <small
+            >This may take a few minutes depending on the complexity of your
+            idea.</small
+          >
+        </p>
+      </section>
+
+      <section id="results" class="card hidden">
+        <h2>Your Product Development Results</h2>
+
+        <div class="tabs">
+          <button class="tab-button active" data-tab="summary">Summary</button>
+          <button class="tab-button" data-tab="product-strategy">
+            Strategy
+          </button>
+          <button class="tab-button" data-tab="product-design">Design</button>
+          <button class="tab-button" data-tab="technical-plan">
+            Technical
+          </button>
+          <button class="tab-button" data-tab="implementation">
+            Implementation
+          </button>
+        </div>
+
+        <div id="tab-content">
+          <div class="tab-pane active" id="summary">
+            <h3>Product Development Summary</h3>
+            <div id="summary-content" class="result-content code-block">
+              Loading summary...
+            </div>
+          </div>
+
+          <div class="tab-pane" id="product-strategy">
+            <h3>Product Strategy</h3>
+            <div id="strategy-content" class="result-content code-block">
+              Loading strategy...
+            </div>
+          </div>
+
+          <div class="tab-pane" id="product-design">
+            <h3>Product Design</h3>
+            <div id="design-content" class="result-content code-block">
+              Loading design...
+            </div>
+          </div>
+
+          <div class="tab-pane" id="technical-plan">
+            <h3>Technical Implementation Plan</h3>
+            <div id="technical-content" class="result-content code-block">
+              Loading technical plan...
+            </div>
+          </div>
+
+          <div class="tab-pane" id="implementation">
+            <h3>Implementation Code</h3>
+            <div id="implementation-content" class="result-content code-block">
+              Loading implementation code...
+            </div>
+          </div>
+        </div>
+
+        <div class="download-section">
+          <h3>Save Your Results</h3>
+          <button id="download-txt" class="button secondary">
+            Download as Text
+          </button>
+          <p class="cost-summary" id="cost-summary">API Cost: Calculating...</p>
+        </div>
+      </section>
+
+      <section id="error" class="card hidden">
+        <h2>Error</h2>
+        <div class="error-message" id="error-message">
+          An error occurred while processing your idea.
+        </div>
+        <button id="try-again" class="button secondary">Try Again</button>
+      </section>
+
+      <footer>
+        <p>
+          Powered by Claude API | 
+          <a
+            href="https://github.com/YOUR-USERNAME/product-dev-crew"
+            target="_blank"
+            >GitHub</a
+          >
+        </p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
